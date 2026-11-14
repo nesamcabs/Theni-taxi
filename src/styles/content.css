@@ -1,0 +1,420 @@
+/* Reviews + catalog (PublicContentSections) and generic content-page patterns
+   shared by About / Contact / FAQ / Fare-Tariff / Route & Service landing pages. */
+
+.sec-heading {
+  text-align: center;
+  margin: 0 auto var(--s-8);
+}
+.sec-heading h2 {
+  margin: 0 0 8px;
+}
+
+/* Reviews */
+.reviews__wrap {
+  text-align: center;
+}
+.reviews__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--s-5);
+  text-align: left;
+  margin-top: var(--s-6);
+}
+@media (max-width: 1023.98px) {
+  .reviews__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 639.98px) {
+  .reviews__grid {
+    grid-template-columns: 1fr;
+  }
+}
+.review-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  padding: var(--s-5);
+  display: grid;
+  gap: 10px;
+  align-content: start;
+}
+.review-card__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+.review-card__user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.review-card__avatar {
+  display: inline-grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--brand-soft);
+  color: var(--brand-ink);
+  font-weight: 800;
+}
+.review-card__name {
+  display: block;
+  font-size: var(--fs-sm);
+  color: var(--ink);
+}
+.review-card__tag {
+  font-size: var(--fs-2xs);
+  color: var(--muted);
+}
+.review-card__stars {
+  color: var(--amber);
+  letter-spacing: 1px;
+  font-size: var(--fs-sm);
+  flex: none;
+}
+.review-card__text {
+  color: var(--text);
+  font-size: var(--fs-sm);
+}
+.review-card__reply {
+  padding-top: 8px;
+  border-top: 1px dashed var(--line);
+  font-size: var(--fs-xs);
+  color: var(--muted);
+}
+.reviews__empty {
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+  max-width: 420px;
+  margin: 0 auto;
+  padding: var(--s-8) var(--s-5);
+  border: 1.5px dashed var(--line-strong);
+  border-radius: var(--r-lg);
+}
+.reviews__mark {
+  display: inline-grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--brand-soft);
+  color: var(--brand);
+}
+.reviews__empty-body h3 {
+  font-size: var(--fs-lg);
+}
+.reviews__empty-body p {
+  margin-top: 4px;
+  color: var(--muted);
+}
+.reviews-error {
+  margin-bottom: var(--s-4);
+}
+
+/* Catalog */
+.catalog-wrap {
+  text-align: center;
+}
+.catalog-group {
+  margin-top: var(--s-6);
+  text-align: left;
+}
+.catalog-group h3 {
+  font-size: var(--fs-lg);
+  margin-bottom: var(--s-4);
+}
+.catalog-cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--s-4);
+  list-style: none;
+}
+@media (max-width: 1023.98px) {
+  .catalog-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 639.98px) {
+  .catalog-cards {
+    grid-template-columns: 1fr;
+  }
+}
+.catalog-item {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  padding: var(--s-4);
+  display: grid;
+  gap: 8px;
+  align-content: start;
+}
+.catalog-item strong {
+  color: var(--ink);
+}
+.catalog-item p {
+  color: var(--muted);
+  font-size: var(--fs-sm);
+}
+.catalog-price {
+  color: var(--brand-ink);
+  font-weight: 700;
+  font-size: var(--fs-xs);
+}
+.catalog-places-list {
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+/* ── Generic content page shell ───────────────────────────────────────── */
+.content-hero {
+  padding-block: clamp(32px, 2rem + 2vw, 64px) var(--s-10);
+  background: var(--ink);
+  color: var(--on-dark);
+}
+.content-hero .eyebrow {
+  color: var(--brand);
+}
+.content-hero h1 {
+  color: var(--on-dark);
+  margin-top: 8px;
+}
+.content-hero p {
+  color: var(--on-dark-muted);
+  max-width: var(--measure);
+  margin-top: 12px;
+  font-size: var(--fs-md);
+}
+.breadcrumbs {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  font-size: var(--fs-2xs);
+  color: var(--on-dark-muted);
+}
+.breadcrumbs a {
+  color: var(--on-dark-muted);
+}
+.breadcrumbs a:hover {
+  color: #fff;
+}
+
+.content-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: var(--s-6);
+}
+
+.prose {
+  max-width: var(--measure);
+  display: grid;
+  gap: var(--s-4);
+  color: var(--text);
+}
+.prose h2 {
+  margin-top: var(--s-4);
+}
+.prose ul {
+  display: grid;
+  gap: 8px;
+  padding-left: 20px;
+  list-style: disc;
+}
+
+.feature-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--s-8);
+  align-items: start;
+}
+@media (max-width: 899.98px) {
+  .feature-row {
+    grid-template-columns: 1fr;
+  }
+}
+.feature-list {
+  display: grid;
+  gap: var(--s-4);
+}
+.feature-list__item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: var(--s-4);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+}
+.feature-list__icon {
+  flex: none;
+  display: inline-grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--r-sm);
+  background: var(--brand-soft);
+  color: var(--brand-ink);
+}
+.feature-list__item h4 {
+  font-size: var(--fs-md);
+}
+.feature-list__item p {
+  color: var(--muted);
+  font-size: var(--fs-sm);
+  margin-top: 2px;
+}
+
+/* Fare / tariff table */
+.fare-table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  background: var(--surface);
+}
+table.fare-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 640px;
+}
+.fare-table th,
+.fare-table td {
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid var(--line);
+  font-size: var(--fs-sm);
+  white-space: nowrap;
+}
+.fare-table th {
+  background: var(--sunken);
+  font-size: var(--fs-2xs);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+}
+.fare-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+.fare-table td.price {
+  font-weight: 800;
+  color: var(--brand-ink);
+}
+
+/* FAQ accordion */
+.faq-list {
+  display: grid;
+  gap: 10px;
+  max-width: var(--measure);
+}
+.faq-item {
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--surface);
+  overflow: hidden;
+}
+.faq-item__q {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  padding: 16px 18px;
+  background: none;
+  border: 0;
+  text-align: left;
+  font-weight: 700;
+  font-size: var(--fs-sm);
+  color: var(--ink);
+  cursor: pointer;
+}
+.faq-item__chevron {
+  flex: none;
+  transition: transform var(--dur) var(--ease);
+  color: var(--brand);
+}
+.faq-item.is-open .faq-item__chevron {
+  transform: rotate(180deg);
+}
+.faq-item__a {
+  padding: 0 18px 16px;
+  color: var(--muted);
+  font-size: var(--fs-sm);
+}
+
+/* Route / city corridor grid (links out to /theni-to/:slug pages) */
+.route-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--s-4);
+}
+@media (max-width: 1023.98px) {
+  .route-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+@media (max-width: 719.98px) {
+  .route-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 479.98px) {
+  .route-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.route-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 14px 16px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  color: var(--ink);
+  font-weight: 700;
+  font-size: var(--fs-sm);
+  transition: border-color var(--dur) var(--ease), color var(--dur) var(--ease);
+}
+.route-card:hover {
+  border-color: var(--brand);
+  color: var(--brand-hover);
+}
+.route-card small {
+  display: block;
+  color: var(--muted);
+  font-weight: 500;
+  font-size: var(--fs-2xs);
+  margin-top: 2px;
+}
+
+.stat-row {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--s-4);
+}
+@media (max-width: 719.98px) {
+  .stat-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+.stat-tile {
+  text-align: center;
+  padding: var(--s-5);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+}
+.stat-tile strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: var(--fs-2xl);
+  color: var(--brand-ink);
+}
+.stat-tile span {
+  color: var(--muted);
+  font-size: var(--fs-xs);
+}

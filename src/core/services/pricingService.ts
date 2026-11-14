@@ -36,7 +36,7 @@ function vehicleTypeAliases(...labels: string[]): string[] {
 }
 
 /** This site's brand: a category can carry a car image of its own per brand (admin → Vehicle categories). */
-const SITE_BRAND = 'people_taxi';
+const SITE_BRAND = 'theni_taxi';
 const brandImage = (d: DocumentData): string => {
   const images = d.brandImages;
   return images && typeof images === 'object' ? str((images as Record<string, unknown>)[SITE_BRAND]) : '';

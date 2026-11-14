@@ -1,0 +1,170 @@
+.floating-contact {
+  position: fixed;
+  right: var(--s-4);
+  bottom: var(--s-4);
+  z-index: 70;
+  display: grid;
+  gap: 10px;
+  justify-items: end;
+}
+.floating-contact__panel {
+  display: grid;
+  gap: 8px;
+  padding: var(--s-3);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-3);
+  width: 220px;
+}
+.floating-contact__panel a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: var(--r-sm);
+  font-weight: 700;
+  font-size: var(--fs-sm);
+  color: var(--ink);
+}
+.floating-contact__panel a:hover {
+  background: var(--sunken);
+}
+.floating-contact__fab {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  border: none;
+  background: var(--brand);
+  color: #fff;
+  box-shadow: var(--shadow-3);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+.floating-contact__fab.is-open {
+  background: var(--ink);
+}
+
+@media (max-width: 719.98px) {
+  .floating-contact {
+    right: var(--s-3);
+    bottom: var(--s-3);
+  }
+}
+
+/* Auth modal (phone OTP) */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  background: rgb(36 26 18 / 0.55);
+  display: grid;
+  place-items: center;
+  padding: var(--s-4);
+}
+.modal-card {
+  width: 100%;
+  max-width: 400px;
+  background: var(--surface);
+  border-radius: var(--r-xl);
+  padding: var(--s-6);
+  box-shadow: var(--shadow-4);
+  position: relative;
+}
+.modal-close {
+  position: absolute;
+  top: var(--s-3);
+  right: var(--s-3);
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+.modal-card h2 {
+  font-size: var(--fs-xl);
+  margin-bottom: 6px;
+}
+.modal-card p {
+  color: var(--muted);
+  font-size: var(--fs-sm);
+  margin-bottom: var(--s-5);
+}
+.otp-boxes {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin: var(--s-4) 0;
+}
+.otp-boxes input {
+  flex: 0 1 44px;
+  width: 44px;
+  min-width: 0;
+  height: 52px;
+  text-align: center;
+  font-size: var(--fs-xl);
+  font-weight: 800;
+  border: 1.5px solid var(--field-line);
+  border-radius: var(--r-sm);
+}
+@media (max-width: 479.98px) {
+  .modal-card {
+    padding: var(--s-5) var(--s-4);
+  }
+  .otp-boxes {
+    gap: 6px;
+  }
+  .otp-boxes input {
+    flex-basis: 38px;
+    width: 38px;
+    height: 48px;
+    font-size: var(--fs-lg);
+  }
+}
+@media (max-width: 359.98px) {
+  .otp-boxes {
+    gap: 5px;
+  }
+  .otp-boxes input {
+    flex-basis: 33px;
+    width: 33px;
+    height: 44px;
+    font-size: var(--fs-md);
+  }
+}
+.otp-boxes input:focus {
+  outline: none;
+  border-color: var(--brand);
+  box-shadow: var(--ring);
+}
+.phone-field {
+  display: flex;
+  gap: 8px;
+}
+.phone-field__prefix {
+  display: inline-flex;
+  align-items: center;
+  padding: 0 12px;
+  border: 1.5px solid var(--field-line);
+  border-radius: var(--r-sm);
+  font-weight: 700;
+  color: var(--muted);
+  background: var(--sunken);
+}
+.resend-row {
+  text-align: center;
+  font-size: var(--fs-xs);
+  color: var(--muted);
+  margin-top: var(--s-2);
+}
+.resend-row button {
+  border: 0;
+  background: none;
+  color: var(--brand-hover);
+  font-weight: 700;
+  cursor: pointer;
+}

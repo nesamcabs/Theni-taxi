@@ -1,0 +1,198 @@
+/* Reset, base elements, layout primitives. */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  overflow-x: hidden;
+}
+body {
+  margin: 0;
+  width: 100%;
+  overflow-x: hidden;
+  background: var(--paper);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  -webkit-font-smoothing: antialiased;
+}
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+a {
+  color: var(--brand-hover);
+  text-decoration: none;
+}
+button {
+  font-family: inherit;
+}
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  line-height: var(--lh-tight);
+  color: var(--ink);
+}
+h1 {
+  font-size: var(--fs-h1);
+}
+h2 {
+  font-size: var(--fs-h2);
+}
+h3 {
+  font-size: var(--fs-xl);
+}
+p {
+  margin: 0;
+}
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+}
+::selection {
+  background: var(--brand-tint);
+}
+:focus-visible {
+  outline: 3px solid var(--brand);
+  outline-offset: 2px;
+  border-radius: var(--r-xs);
+}
+
+#app-startup {
+  display: none;
+}
+
+/* ── Layout ─────────────────────────────────────────────────────────────── */
+.wrap {
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding-inline: var(--gutter);
+}
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+main {
+  flex: 1 0 auto;
+}
+.band {
+  padding-block: var(--section);
+}
+.band--tight {
+  padding-block: clamp(24px, 1.4rem + 1.6vw, 48px);
+}
+.band--surface {
+  background: var(--surface);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.band--ink {
+  background: var(--ink);
+  color: var(--on-dark);
+}
+.band--ink h2,
+.band--ink h3 {
+  color: var(--on-dark);
+}
+.band--ink .muted {
+  color: var(--on-dark-muted);
+}
+
+.muted {
+  color: var(--muted);
+}
+.small {
+  font-size: var(--fs-sm);
+}
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--fs-2xs);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--brand-hover);
+}
+.eyebrow::before {
+  content: '';
+  width: 18px;
+  height: 2px;
+  background: var(--brand);
+  border-radius: 2px;
+}
+
+.sec-head {
+  display: grid;
+  gap: 10px;
+  max-width: var(--measure);
+  margin-bottom: var(--s-8);
+}
+.sec-head__text {
+  color: var(--muted);
+  font-size: var(--fs-md);
+}
+
+.grid {
+  display: grid;
+  gap: var(--s-6);
+}
+.grid--2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.grid--3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.grid--4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+@media (max-width: 1023.98px) {
+  .grid--4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .grid--3 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 639.98px) {
+  .grid--2,
+  .grid--3,
+  .grid--4 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Signature "meter strip" accent: a soft taxi-stripe rule used sparingly as a section divider. */
+.meter-strip {
+  height: 6px;
+  background: repeating-linear-gradient(-45deg, var(--brand) 0 14px, var(--ink) 14px 28px);
+  opacity: 0.9;
+}
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  background: var(--ink);
+  color: var(--on-dark);
+  padding: 10px 16px;
+  border-radius: var(--r-sm);
+  z-index: 1000;
+}
+.skip-link:focus {
+  left: var(--s-4);
+  top: var(--s-4);
+}

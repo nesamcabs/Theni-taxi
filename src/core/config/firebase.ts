@@ -1,11 +1,8 @@
-// Firebase for the Customer app: same project, Auth users, Firestore and
-// Storage as the Customer Web panel. This is the public client configuration
-// (identifiers, not secrets) — access is enforced by firestore.rules and
-// storage.rules.
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import { Platform } from 'react-native';
+// Firebase for Theni Taxi (web only): same project, Auth users, Firestore and
+// Storage as the other NESAM customer sites. This is the public client configuration
+// (identifiers, not secrets) — access is enforced by firestore.rules and storage.rules.
 import { getApp, getApps, initializeApp, type FirebaseApp } from 'firebase/app';
-import { connectAuthEmulator, getAuth, getReactNativePersistence, initializeAuth, signInWithCustomToken, type Auth } from 'firebase/auth';
+import { connectAuthEmulator, getAuth, signInWithCustomToken } from 'firebase/auth';
 import { connectFirestoreEmulator, getFirestore, initializeFirestore, memoryLocalCache, type Firestore } from 'firebase/firestore';
 import { connectFunctionsEmulator, getFunctions } from 'firebase/functions';
 import { connectStorageEmulator, getStorage } from 'firebase/storage';
@@ -21,19 +18,8 @@ export const firebaseConfig = {
 
 export const app: FirebaseApp = getApps().length ? getApp() : initializeApp(firebaseConfig);
 
-// initializeAuth may only run once per app; Fast Refresh re-evaluates this
-// module, so fall back to the existing instance. In a browser the SDK's default
-// persistence (IndexedDB / localStorage) is used and the React Native one does
-// not exist, so the web build goes straight to getAuth.
-function createAuth(): Auth {
-  if (Platform.OS === 'web') return getAuth(app);
-  try {
-    return initializeAuth(app, { persistence: getReactNativePersistence(AsyncStorage) });
-  } catch {
-    return getAuth(app);
-  }
-}
-export const auth = createAuth();
+// A browser uses the SDK's default persistence (IndexedDB / localStorage).
+export const auth = getAuth(app);
 
 // The cache is in-memory on every platform (React Native has no IndexedDB, and
 // a shared browser profile must not keep another user's documents); the live
